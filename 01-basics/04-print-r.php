@@ -23,4 +23,4 @@ print_r( "Hello World" );   // Ausgabe von einem String
 print_r( 1 );               // Ausgabe von einem Integer
 print_r( 1.2 );             // Ausgabe von einem Float
 print_r( [ 'a', 'b', 'c' ] );     // Ausgabe von einem Array
-print_r( new Exception() );
+print_r( new Exception() );       // Ausgabe von einem Objekt
