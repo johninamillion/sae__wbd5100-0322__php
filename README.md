@@ -102,7 +102,7 @@ Solltest du in der Entwicklung deiner Anwendung merken das du eine Funktionsweis
 ### MVC - Model, View, Controller (Muster)
 Deine Anwendungen sollten nach dem MVC Muster zur Unterteilung in drei Komponenten (Model, View & Controller) strukturiert sein.
 
-### Working software over comprehensive documentation
+### Software > Documentation
 Versuche deine Anwendung so zu schreiben, dass dein Code auch ohne eine Dokumentation verständlich ist. Nutze hierfür besonders die features der Typisierung (Type Declarations, Type Hints, Return Types) die PHP bietet.
 
 ---
