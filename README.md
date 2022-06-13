@@ -36,7 +36,7 @@ Dies sollte in der ersten Zeile der jeweiligen Datei stehen. Ein schließendes T
 ```php
 <?php
 
-echo "Hallo Welt"
+echo "Hallo Welt";
 ```
 
 ### PHP innerhalb von HTML Strukturen
