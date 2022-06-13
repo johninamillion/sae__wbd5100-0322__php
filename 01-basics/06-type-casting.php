@@ -1,5 +1,6 @@
 <?php
 
+// siehe "01-basics/08-error-reporting.php"
 error_reporting( E_ALL );
 ini_set( 'display_errors', '1' );
 
