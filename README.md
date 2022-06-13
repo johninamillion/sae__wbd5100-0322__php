@@ -8,6 +8,8 @@ Ich arbeite im Unterricht mit einem LAMP-Stack unter der Verwendung von MariaDB 
 
 Die Einrichtung einer lokalen Entwicklungsumgebung sind wir im VCE durchgegangen, solltest du an diesem nicht teilgenommen haben, besorge dir die Notwendigen Information bitte über deine Mitstudierenden oder im Support.
 
+Information über dein Setup bekommst du durch den aufruf der Funktion `phpinfo`.
+
 ### MAMP (MacOS)
 Zur schnellen und einfachen Einrichtung eines AMP-Stacks auf MacOS empfiehlt sich MAMP.   
 [Zu MAMP download′](https://www.mamp.info/)
@@ -57,6 +59,39 @@ Zusätzlich erlaubt ist `<?=` als eine alternative Kurzschreibeweise zu `<?php e
 Die Verwendung von PHP in HTML Strukturen sollte nur in Templates stattfinden. 
 Hier sollten keine Variablen, Funktionen oder ähnliches definiert werden.
 
+### Kommentare in PHP
+Beispiele zu Kommentaren in PHP:
+```php
+// Dies ist ein einzeiliger Kommentar
+
+/*
+ * Dies ist ein mehrzeiliger Kommentar
+ * Dies ist ein mehrzeiliger Kommentar
+ */
+```
+
+### Doc-Blocks in PHP
+
+Doc-Blocks dienen der Dokumentation vom Code. Diese Können für Dateien, Klassen, Interfaces, Traits, Funktionen und Variablen verwendet werden.
+
+Mit Hilfe von Doc-Blocks können automatisch Dokumentation deiner Anwendung erstellt werden, bspw. mit der Software *phpDocumentor*.
+
+Beispiel eines Doc-Blocks anhand von einer Funktion:
+```php
+
+/**
+ *  Überprüft ob ein Integer innerhalb von einem Text vorkommt.
+ *
+ *  @param  string  $parameter1     Ein Text welcher durchsucht werden soll
+ *  @param  int     $parameter2     Der Integer nachdem im Text gesucht werden soll
+ *  @return bool
+ */
+function myFunction( string $parameter1, int $parameter2 ) : bool {
+
+    return strstr( $parameter2, $parameter1 );
+}
+```
+
 ---
 
 ## Prinzipien / Do's & Don'ts
@@ -66,6 +101,9 @@ Solltest du in der Entwicklung deiner Anwendung merken das du eine Funktionsweis
 
 ### MVC - Model, View, Controller (Muster)
 Deine Anwendungen sollten nach dem MVC Muster zur Unterteilung in drei Komponenten (Model, View & Controller) strukturiert sein.
+
+### Working software over comprehensive documentation
+Versuche deine Anwendung so zu schreiben, dass dein Code auch ohne eine Dokumentation verständlich ist. Nutze hierfür besonders die features der Typisierung (Type Declarations, Type Hints, Return Types) die PHP bietet.
 
 ---
 
