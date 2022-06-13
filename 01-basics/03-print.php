@@ -6,6 +6,9 @@ ini_set( 'display_errors', '1' );
 /*
  * Gibt einen Wert aus und Rückgabewert
  *
+ * php.net Referenz:
+ * https://www.php.net/manual/de/function.print.php
+ *
  * Geeignet für Strings, Integers und Floats
  * String       gibt den String aus
  * Integer      gibt den Integer aus
@@ -16,10 +19,10 @@ ini_set( 'display_errors', '1' );
  * Array        gibt "Array" aus
  * Object       gibt den Klassennamen des Objektes aus
  */
-echo "Hello World!";    // Ausgabe von einem String
-echo 1;                 // Ausgabe von einem Integer
-echo 1.2;               // Ausgabe von einem Float
+print "Hello World!";   // Ausgabe von einem String
+print 1;                // Ausgabe von einem Integer
+print 1.2;              // Ausgabe von einem Float
 
-echo( "Hello World" );  // Alternative Schreibweise zur Ausgabe von einem String
-echo( 1 );              // Alternative Schreibweise zur Ausgabe von einem Integer
-echo( 1.2 );            // Alternative Schreibweise zur Ausgabe von einem Float
+print( "Hello World" ); // Alternative Schreibweise zur Ausgabe von einem String
+print( 1 );             // Alternative Schreibweise zur Ausgabe von einem Integer
+print( 1.2 );           // Alternative Schreibweise zur Ausgabe von einem Float
