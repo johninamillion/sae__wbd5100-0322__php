@@ -1,5 +1,18 @@
 # WBD5100 - PHP Basics
 
+## Inhalte
+* [Einrichtung der Entwicklungsumgebung](#einrichtung-der-entwicklungsumgebung)
+  * [MAMP (MacOS)](#mamp-macos)
+  * [XAMPP (Windows)](#xampp-windows)
+  * [Vagrant & VirtualBox](#vagrant--virtualbox)
+* [Verwendung von PHP](#verwendung-von-php)
+* [Do's / Don'ts](#dos--donts)
+  * [Type Hints](#type-hints)
+  * [Return Types](#return-types)
+* [Designprinzipien/Strukturen](#designprinzipien--strukturen)
+
+---
+
 ## Einrichtung der Entwicklungsumgebung
 Zur Entwicklung von PHP basierten Web Anwendung bedarf es eines AMP-Stacks oder einer alternative.
 Oft ist die Sprache von einem so gennanten LAMP-Stack (Linux, Apache, MySQL, PHP), hier gibt es bspw. alternativen im Betriebssystem mit Windows, im Websever mit NGINX und in der Datenbank mit MariaDB. Diese Alternativen können zu einer Unterschiedlichen Bezeichnung führen.
@@ -94,7 +107,73 @@ function myFunction( string $parameter1, int $parameter2 ) : bool {
 
 ---
 
-## Prinzipien / Do's & Don'ts
+## Do's & Don'ts
+
+### Type Hints
+
+Gebe über den **Type Hint** Information darüber welcher Datentyp für einen Parameter zulässig ist.
+
+Gültige Type Hints sind `string`, `int`, `float`, `bool`, `array`, `callable`, `void` und `Class`/`Interface`.
+Ein Type Hint wie beispielsweise `?string` gibt an das ein String oder NULL übergeben wird.
+
+**DO** - Methoden und Funktionen mit Type Hints schreiben
+
+*In diesem Beispiel führt es bereits zu einem gewollten Fehler wenn einem der Parameter ein falscher Datentyp übergeben wird.*
+
+```php
+function removeValueByKey( string $key, array $data ) {
+    if ( array_key_exists( $key, $data ) ) {
+        unset( $data[ $key ] );
+    } 
+}
+```
+
+**DON'T** - Methoden und Funktionen ohne Type Hints schreiben
+
+*In diese Beispiel führt es zu einem ungewollten Fehler wenn Falsche Datentypen der Funktion array_key_exists übergeben werden, 
+oder versucht wird mit einem falschen Datentypen als Index/Key auf den Array zuzugreifen.*
+
+```php
+function removeValueByKey( $key, $data ) {
+    if ( array_key_exists( $key, $data ) ) {
+        unset( $data[ $key ] );
+    } 
+}
+```
+
+### Return Types
+
+Gebe über den **Return Type** Informationen darüber welcher Datentyp zurückgegeben wird.
+Dies erhöht die Lesbarkeit von deinem Code und hilft Funktionen fokusierter zu schreiben.
+
+Gültige Return Types sind `string`, `int`, `float`, `bool`, `array`, `callable`, `void` und `Class`/`Interface`.
+Ein Return Type wie beispielsweise `?string` gibt an das ein String oder NULL zurückgegeben wird.
+
+**DO** - Methoden und Funktionen mit Return Type schreiben.
+
+*In diesem Beispiel führt es bereits zu einem gewollten Fehler wenn unsere Funktionen einen anderen Datentyp als `bool` zurück gibt.*
+
+```php
+function returnTrue() : bool {
+
+    return TRUE;
+}
+```
+
+**DON'T** - Methoden und Funktionen ohne Return Type schreiben
+
+*In diesem Beispiel führt es zu einem ungewollten Fehler, wenn wir von der Funktion einen anderen Datentypen erwahrten, als wir zurück gegeben bekommen und mit diesem weiter arbeiten.*
+
+```php
+function returnTrue() {
+    
+    return TRUE;
+}
+```
+
+---
+
+## Designprinzipien / Strukturen
 
 ### DRY - Don't Repeat Yourself
 Solltest du in der Entwicklung deiner Anwendung merken das du eine Funktionsweise, Kontrollstrukturen oder ähnliches wiederholst und somit Code Duplikate entstehen, solltest du überlegen wie du diese abstrahierst und/oder auslagerst um eine Wiederholung zu vermeiden.
