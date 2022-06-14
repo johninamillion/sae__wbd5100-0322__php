@@ -2,9 +2,9 @@
 
 /*
  * php.net Referenzen
+ * https://www.php.net/manual/en/control-structures.elseif.php
  * https://www.php.net/manual/en/language.operators.logical.php
- * https://www.php.net/manual/en/types.comparisons.php
- * 
+ *
  * Vergleichsoperatoren
  * and  and     true wenn $condition1 und $condition2 erfüllt sind
  * or   or      true wenn $condition1 oder $condition2 erfüllt sind

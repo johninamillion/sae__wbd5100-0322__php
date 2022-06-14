@@ -2,6 +2,7 @@
 
 /*
  * php.net Referenzen
+ * https://www.php.net/manual/en/control-structures.elseif.php
  * https://www.php.net/manual/en/language.operators.comparison.php
  * https://www.php.net/manual/en/types.comparisons.php
  * 
