@@ -7,6 +7,7 @@
   * [Vagrant & VirtualBox](#vagrant--virtualbox)
 * [Verwendung von PHP](#verwendung-von-php)
 * [Do's / Don'ts](#dos--donts)
+  * [Type Declarations](#type-declarations) 
   * [Type Hints](#type-hints)
   * [Return Types](#return-types)
 * [Designprinzipien/Strukturen](#designprinzipien--strukturen)
@@ -109,6 +110,37 @@ function myFunction( string $parameter1, int $parameter2 ) : bool {
 
 ## Do's & Don'ts
 
+### Type Declarations
+
+Gebe über die *Type Declaration* information darüber welcher Datentype für eine Klassenvariable zulässig ist.
+
+Gültige Type Declarations sind `string`, `int`, `float`, `bool`, `array`, `callable`, `void` und `Class`/`Interface`.
+Ein Type Hint wie beispielsweise `?string` gibt an das ein String oder NULL zugewiesen wird.
+
+**DO** - Klassenvariablen mit Type Declarations schreiben
+
+*In diesem Beispiel führt es bereits zu einem gewollten Fehler, wenn einer Klassenvariable eine Wert von einem falschen Type zugewiesen wird.*
+
+```php
+class Example {
+
+  public string $hello = 'Hello';
+
+}
+```
+
+**DON'T** - Klassenvariablen ohne Type Declarations schreiben
+
+*In diesem Beispiel führt es erst zu einem ungewollten Fehler, wenn mit einem Wert, welcher einen falschen Typ entspricht, gearbeitet wird.*
+
+```php
+class Example {
+
+  public $hello = 'Hello';
+
+}
+```
+
 ### Type Hints
 
 Gebe über den **Type Hint** Information darüber welcher Datentyp für einen Parameter zulässig ist.
@@ -118,7 +150,7 @@ Ein Type Hint wie beispielsweise `?string` gibt an das ein String oder NULL übe
 
 **DO** - Methoden und Funktionen mit Type Hints schreiben
 
-*In diesem Beispiel führt es bereits zu einem gewollten Fehler wenn einem der Parameter ein falscher Datentyp übergeben wird.*
+*In diesem Beispiel führt es bereits zu einem gewollten Fehler, wenn einem der Parameter ein falscher Datentyp übergeben wird.*
 
 ```php
 function removeValueByKey( string $key, array $data ) {
@@ -130,7 +162,7 @@ function removeValueByKey( string $key, array $data ) {
 
 **DON'T** - Methoden und Funktionen ohne Type Hints schreiben
 
-*In diese Beispiel führt es zu einem ungewollten Fehler wenn Falsche Datentypen der Funktion array_key_exists übergeben werden, 
+*In diese Beispiel führt es zu einem ungewollten Fehler, wenn Falsche Datentypen der Funktion array_key_exists übergeben werden, 
 oder versucht wird mit einem falschen Datentypen als Index/Key auf den Array zuzugreifen.*
 
 ```php
@@ -151,7 +183,7 @@ Ein Return Type wie beispielsweise `?string` gibt an das ein String oder NULL zu
 
 **DO** - Methoden und Funktionen mit Return Type schreiben.
 
-*In diesem Beispiel führt es bereits zu einem gewollten Fehler wenn unsere Funktionen einen anderen Datentyp als `bool` zurück gibt.*
+*In diesem Beispiel führt es bereits zu einem gewollten Fehler, wenn unsere Funktionen einen anderen Datentyp als `bool` zurück gibt.*
 
 ```php
 function returnTrue() : bool {
