@@ -117,7 +117,7 @@ function validateCountry( ?string $country, array &$errors ) : bool {
     // Fehlt der Key country im Errors Array
     // || sind keine Werte im Array mit dem Key country vorhanden
     // Dann return wir TRUE, weil das Land valide ist
-    return isset( $errors[ 'country' ] ) === FALSE || count( $errors ) === 0;
+    return isset( $errors[ 'country' ] ) === FALSE || count( $errors[ 'country' ] ) === 0;
 }
 
 
@@ -174,7 +174,7 @@ function validateName( string $input_name, ?string $name, array &$errors ) : boo
     if ( empty( $name ) === TRUE ) {
         $errors[ $input_name ][] = 'Der eingegebene Name ist leer';
     }
-    // Überprüfen ob der Name kürzer als 3 Zeichen ist
+    // Überprüfen ob $php_errormsgder Name kürzer als 3 Zeichen ist
     if ( strlen( $name ) < 3 ) {
         $errors[ $input_name ][] = 'Der eingegebene Name ist kürzer als 3 Zeichen';
     }
@@ -238,22 +238,6 @@ function validatePassword( ?string $password, ?string $password_repeat, array &$
  * @return  bool
  */
 function validateUsername( ?string $username, array &$errors ) : bool {
-    // Überprüfen ob der Nutzername leer oder NULL ist
-    if ( empty( $username ) === TRUE ) {
-        $errors[ 'username' ][] = 'Der eingegebene Nutzername ist leer';
-    }
-    // Überprüfen ob der Nutzername kürzer als 4 Zeichen ist
-    if ( strlen( $username ) < 4 ) {
-        $errors[ 'username' ][] = 'Der eingegebene Nutzername ist kürzer als 4 Zeichen';
-    }
-    // Überprüfen ob der Nutzername länger als 16 Zeichen ist
-    if ( strlen( $username ) > 16 ) {
-        $errors[ 'username' ][] = 'Der eingegebene Nutzername ist länger als 16 Zeichen';
-    }
-    // Überprüfen ob der Nutzername whitespace enthält
-    if ( preg_match( '/\s/', $username ) === 1 ) {
-        $errors[ 'username' ][] = 'Der Nutzername enthält leerzeichen';
-    }
 
     // Fehlt der Key username im Errors Array
     // || sind keine Werte im Array mit dem Key username vorhanden
